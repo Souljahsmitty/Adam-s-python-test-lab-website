@@ -18,7 +18,33 @@ def run_code():
 
     results = []
 
-    if question_id == "question3":
+    # Handle Question 1
+    if question_id == "question1":
+        for test_case in test_cases:
+            input_data = test_case.get('input', {})
+            expected_output = test_case.get('expected', '')
+
+            try:
+                # Example logic for Question 1 (update with actual logic)
+                user_output = "Example output for Q1"
+                match = user_output == expected_output
+
+                results.append({
+                    "input": input_data,
+                    "user_output": user_output,
+                    "expected_output": expected_output,
+                    "match": match,
+                })
+            except Exception as e:
+                results.append({
+                    "input": input_data,
+                    "user_output": f"Error: {e}",
+                    "expected_output": expected_output,
+                    "match": False,
+                })
+
+    # Handle Question 3
+    elif question_id == "question3":
         for test_case in test_cases:
             ounces = test_case.get('ounces', 0)
             expected_output = test_case.get('expected', '')
@@ -49,7 +75,9 @@ def run_code():
                     "expected_output": expected_output,
                     "match": False,
                 })
+
     else:
+        # Invalid Question ID
         return jsonify({"error": "Invalid questionId"}), 400
 
     return jsonify({"results": results})
