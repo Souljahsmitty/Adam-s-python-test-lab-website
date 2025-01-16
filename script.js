@@ -76,7 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let correctCount = 0;
         resultContainer.innerHTML = ""; // Clear previous results
 
-        fetch("https://adam-s-python-test-lab-website.onrender.com", {
+        fetch("https://adam-s-python-test-lab-website.onrender.com/run_code", {
+
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
