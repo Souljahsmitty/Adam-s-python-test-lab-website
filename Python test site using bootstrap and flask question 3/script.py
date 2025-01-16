@@ -6,8 +6,12 @@ import io
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-@app.route('/run_code', methods=['POST'])
+@app.route('/run_code', methods=['POST', 'OPTIONS'])
 def run_code():
+    if request.method == 'OPTIONS':
+        # CORS preflight handling
+        return jsonify({"message": "Preflight OK"}), 200
+
     data = request.json
     question_id = data.get('questionId', '')  # Identify the question
     code = data.get('code', '')
