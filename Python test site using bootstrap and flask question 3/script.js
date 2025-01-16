@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { ounces: 16000, expected: "Tons: 0\nPounds: 1000\nOunces: 0" },
         ];
 
-        fetch("https://adam-s-python-test-lab-website.onrender.com/run_code", {
+        fetch("https://adam-s-python-test-lab-website-1.onrender.com/run_code", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
