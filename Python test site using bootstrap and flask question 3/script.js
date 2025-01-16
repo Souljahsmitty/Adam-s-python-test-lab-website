@@ -43,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Ensure ounces input is valid
+        // Validate ounces input
         if (isNaN(parseInt(ounces, 10))) {
             alert("Please enter a valid number for ounces.");
             return;
         }
 
-        // Dynamically generate expected output for user input
+        // Calculate dynamic expected output
         const ouncesValue = parseInt(ounces, 10);
         const ouncesPerPound = 16;
         const poundsPerTon = 2000;
@@ -70,12 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
             { ounces: 16000, expected: "Tons: 0\nPounds: 1000\nOunces: 0" },
         ];
 
-        console.log("Payload being sent:", {
-            questionId: "question3",
-            code: code,
-            test_cases: testCases,
-        });
-
         fetch("https://adam-s-python-test-lab-website.onrender.com/run_code", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -92,9 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json();
             })
             .then((data) => {
-                console.log("Response from server:", data);
                 resultContainer.innerHTML = ""; // Clear previous results
-
                 if (data.results && data.results.length > 0) {
                     let correctCount = 0;
 
