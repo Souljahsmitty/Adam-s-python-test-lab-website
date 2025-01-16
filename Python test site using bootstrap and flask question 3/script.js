@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             test_cases: testCases,
         });
 
-        fetch("http://127.0.0.1:5000/run_code", {
+        fetch("https://adam-s-python-test-lab-website.onrender.com", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
